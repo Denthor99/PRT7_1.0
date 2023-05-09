@@ -6,13 +6,13 @@ import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
-import java.io.Console;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 
-public class Practica7Main extends OperacionesAplicacion {
+public class Practica7Main extends OperacionesAplicacion{
     public static void main(String[] args) throws IOException, ParserConfigurationException, TransformerException, SAXException, ClassNotFoundException {
 
         //Creamos todos los alumnos de la clase
@@ -31,6 +31,7 @@ public class Practica7Main extends OperacionesAplicacion {
         Estudiante JoseAntonio = new Estudiante("Jose Antonio Jaén Gómez", 0);
         Estudiante AntonioJesus = new Estudiante("Antonio Jesús Téllez Perdigones", 2);
 
+        // Creamos las lista, donde introduciremos a todos los estudiantes de la clase.
         List<Estudiante> listaEstudiantes = new ArrayList<>();
         listaEstudiantes.add(Pablo);
         listaEstudiantes.add(JuanMaria);
@@ -47,40 +48,45 @@ public class Practica7Main extends OperacionesAplicacion {
         listaEstudiantes.add(JoseAntonio);
         listaEstudiantes.add(AntonioJesus);
 
-        Console consola = System.console();
+        //Console consola = System.console();
         boolean exit = false;
-        if (consola == null) {
-            System.out.println("Esta aplicación no es compatible con un IDE, consulte con el soporte\ntécnico de Remedy SoftWorks, mucha");
-        }else {
-            while (!exit) {
+         // Declaramos variable Scanner
+        Scanner scan=new Scanner(System.in);
+
+       while (!exit) {
                 System.out.println("\nMENU:\n");
                 System.out.println("1. Importar archivo XML");
                 System.out.println("2. Exportar archivo XML");
                 System.out.println("3. Seleccionar alumno menos participativo");
                 System.out.println("4. Resetear participaciones");
                 System.out.println("5. Salir");
-
-                String opcion = consola.readLine("Introduce una opcion (1-5): ");
+                System.out.println("Introduce una opcion (1-5): ");
+                int opcion = scan.nextInt();
 
                 switch (opcion) {
-                    case "1":
-                        String rutaImportar = consola.readLine("Introduce la ruta del archivo XML a importar: ");
+                    case 1:
+                        System.out.println("Introduce la ruta del archivo XML a importar: ");
+                        String rutaImportar = scan.next();
                         importarXML(listaEstudiantes,rutaImportar);
                         break;
-                    case "2":
-                        String rutaLectura = consola.readLine("Introduce la ruta del archivo XML a exportar: ");
-                        String rutaEscritura = consola.readLine("Introduce la ruta donde quieres guardar el archivo exportado: ");
+                    case 2:
+                        System.out.println("Introduce la ruta del archivo XML a exportar: ");
+                        String rutaLectura = scan.next();
+                        System.out.println("Introduce la ruta donde quieres guardar el archivo exportado: ");
+                        String rutaEscritura = scan.next();
                         exportarXML(rutaLectura, rutaEscritura);
                         break;
-                    case "3":
-                        String rutaAlumnos = consola.readLine("Introduce la ruta del archivo XML de alumnos: ");
+                    case 3:
+                        System.out.println("Introduce la ruta del archivo XML de alumnos: ");
+                        String rutaAlumnos = scan.next();
                         System.out.println(seleccionarAlumnoMenosParticipativo(rutaAlumnos));
                         break;
-                    case "4":
-                        String rutaReset = consola.readLine("Introduce la ruta del archivo XML a resetear: ");
+                    case 4:
+                        System.out.println("Introduce la ruta del archivo XML a resetear: ");
+                        String rutaReset = scan.next();
                         resetearParticipaciones(rutaReset);
                         break;
-                    case "5":
+                    case 5:
                         exit = true;
                         System.out.println("Gracias por confiar en Remedy Softworks");
                         break;
@@ -88,15 +94,5 @@ public class Practica7Main extends OperacionesAplicacion {
                         System.out.println("Opcion no valida");
                 }
             }
-        }
-
-        //importarXML(listaEstudiantes,"src/org/ieslosremedios/daw/ud7/practica/pruebas/paraentregar/alumnos.xml");
-        //exportarXML("src/org/ieslosremedios/daw/ud7/practica/pruebas/paraentregar/alumnos.xml", "src/org/ieslosremedios/daw/ud7/practica/pruebas/paraentregar/ficheroExportado.xml");
-        //System.out.println(seleccionarAlumnoMenosParticipativo("src/org/ieslosremedios/daw/ud7/practica/pruebas/paraentregar/alumnos.xml"));
-        //resetearParticipaciones("src/org/ieslosremedios/daw/ud7/practica/pruebas/paraentregar/alumnos.xml");
-
     }
-
-
-
 }
