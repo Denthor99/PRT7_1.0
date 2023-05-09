@@ -1,8 +1,12 @@
-package org.ieslosremedios.daw1.prog.ut7.practica7;
+package org.ieslosremedios.daw1.prog.ut7.practica7.clasesParaImportar;
+
 import java.io.Serializable;
 
 public class Estudiante extends Persona implements Serializable {
     private int participacion;
+
+    public Estudiante() {
+    }
 
     public Estudiante(String nombre, String apellidos, int participacion){
         this.nombre = nombre;

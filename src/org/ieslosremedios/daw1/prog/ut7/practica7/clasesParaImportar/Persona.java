@@ -1,4 +1,4 @@
-package org.ieslosremedios.daw1.prog.ut7.practica7;
+package org.ieslosremedios.daw1.prog.ut7.practica7.clasesParaImportar;
 
 import javax.xml.bind.annotation.XmlElement;
 import java.io.Serializable;
