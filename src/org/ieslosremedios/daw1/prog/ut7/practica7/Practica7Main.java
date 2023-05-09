@@ -50,7 +50,8 @@ public class Practica7Main extends OperacionesAplicacion{
 
         //Console consola = System.console();
         boolean exit = false;
-         // Declaramos variable Scanner
+
+         // Declaramos variable Scanner, que la que usaremos para introducir parametros por pantalla
         Scanner scan=new Scanner(System.in);
 
        while (!exit) {
@@ -61,6 +62,7 @@ public class Practica7Main extends OperacionesAplicacion{
                 System.out.println("4. Resetear participaciones");
                 System.out.println("5. Salir");
                 System.out.println("Introduce una opcion (1-5): ");
+                System.out.println();
                 int opcion = scan.nextInt();
 
                 switch (opcion) {
