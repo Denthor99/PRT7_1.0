@@ -55,14 +55,14 @@ public class Practica7Main extends OperacionesAplicacion{
         Scanner scan=new Scanner(System.in);
 
        while (!exit) {
-                System.out.println("\nMENU:\n");
+           System.out.println();
+                System.out.println("\tMenú de selección:");
                 System.out.println("1. Importar archivo XML");
                 System.out.println("2. Exportar archivo XML");
                 System.out.println("3. Seleccionar alumno menos participativo");
                 System.out.println("4. Resetear participaciones");
                 System.out.println("5. Salir");
                 System.out.println("Introduce una opcion (1-5): ");
-                System.out.println();
                 int opcion = scan.nextInt();
 
                 switch (opcion) {
